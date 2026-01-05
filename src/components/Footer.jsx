@@ -24,7 +24,7 @@ const Footer = () => {
             </Box>
             <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
               Find your perfect property with our comprehensive search platform.
-              Browse houses, flats, and apartments across London and beyond.
+              Browse houses, flats, and apartments across Sri Lanka.
             </Typography>
           </Grid>
 
@@ -50,13 +50,13 @@ const Footer = () => {
               Contact Info
             </Typography>
             <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)', mb: 1 }}>
-              Email: info@estateagent.com
+              Email: info@estateagent.lk
             </Typography>
             <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)', mb: 1 }}>
-              Phone: +44 (0) 20 1234 5678
+              Phone: +94 11 234 5678
             </Typography>
             <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-              London, United Kingdom
+              Colombo, Sri Lanka
             </Typography>
           </Grid>
         </Grid>
