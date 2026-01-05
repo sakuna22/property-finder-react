@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchPage from './pages/SearchPage';
 import PropertyPage from './pages/PropertyPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Routes>
               <Route path="/" element={<SearchPage />} />
               <Route path="/property/:id" element={<PropertyPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
             </Routes>
           </Box>
           <Footer />
