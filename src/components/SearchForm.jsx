@@ -1,3 +1,32 @@
+/**
+ * SearchForm.jsx - Property Search Filter Component
+ * 
+ * This component provides a comprehensive search interface with:
+ * - Property type filter (house/flat/any)
+ * - Price range slider with formatted values
+ * - Bedroom count selectors (min/max)
+ * - Date range pickers for listing date
+ * - Postcode/area code autocomplete
+ * 
+ * React UI Widgets Used:
+ * - MUI Select for dropdowns
+ * - MUI Slider for price range
+ * - MUI Autocomplete for postcode
+ * - MUI DatePicker for date selection
+ * - MUI TextField, Button, Chip components
+ * 
+ * State Management:
+ * - Uses Redux for search criteria persistence
+ * - Dispatches filter actions to update results
+ * 
+ * @component
+ * @requires react
+ * @requires react-redux
+ * @requires @mui/material
+ * @requires @mui/x-date-pickers
+ * @author Estate Agent App
+ * @version 1.0.0
+ */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -37,6 +66,10 @@ import {
 } from '../store/slices/searchSlice';
 import { setFilteredProperties } from '../store/slices/propertiesSlice';
 
+/**
+ * Price slider marks for visual reference
+ * Displays price points on the slider
+ */
 const priceMarks = [
   { value: 0, label: 'Rs.0' },
   { value: 50000000, label: 'Rs.50M' },
@@ -44,26 +77,51 @@ const priceMarks = [
   { value: 150000000, label: 'Rs.150M' },
 ];
 
+/**
+ * Bedroom options for dropdown selectors
+ */
 const bedroomOptions = ['Any', '1', '2', '3', '4', '5+'];
 
+/**
+ * Available postcode options for autocomplete
+ * Based on Sri Lankan area codes
+ */
 const postcodeOptions = ['CMB7', 'CMB3', 'NGD', 'CMB4', 'BTM', 'RJG', 'NGM'];
 
+/**
+ * SearchForm Component
+ * Renders the property search filter interface
+ * 
+ * @returns {JSX.Element} The search form component
+ */
 const SearchForm = () => {
   const dispatch = useDispatch();
   const searchCriteria = useSelector((state) => state.search);
   const allProperties = useSelector((state) => state.properties.allProperties);
 
+  // Local state for price range slider (for smooth UI updates)
   const [priceRange, setPriceRange] = useState([
     searchCriteria.minPrice || 0,
     searchCriteria.maxPrice || 150000000,
   ]);
 
+  /**
+   * Handles price slider change
+   * Updates both local state (for UI) and Redux state
+   * 
+   * @param {Event} event - Change event
+   * @param {Array} newValue - New price range [min, max]
+   */
   const handlePriceChange = (event, newValue) => {
     setPriceRange(newValue);
     dispatch(setMinPrice(newValue[0]));
     dispatch(setMaxPrice(newValue[1]));
   };
 
+  /**
+   * Executes the search with current criteria
+   * Filters properties based on all active filters
+   */
   const handleSearch = () => {
     let filtered = [...allProperties];
 
@@ -120,12 +178,23 @@ const SearchForm = () => {
     dispatch(setFilteredProperties(filtered));
   };
 
+  /**
+   * Resets all search criteria to default values
+   * Shows all properties
+   */
   const handleReset = () => {
     dispatch(resetSearchCriteria());
     setPriceRange([0, 150000000]);
     dispatch(setFilteredProperties(allProperties));
   };
 
+  /**
+   * Formats price value for display
+   * Converts to millions (M) or thousands (k) format
+   * 
+   * @param {number} value - Price value
+   * @returns {string} Formatted price string
+   */
   const formatPrice = (value) => {
     if (value >= 1000000) {
       return `Rs.${(value / 1000000).toFixed(0)}M`;
