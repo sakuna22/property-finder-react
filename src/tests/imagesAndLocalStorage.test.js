@@ -1,19 +1,5 @@
-/**
- * Tests for Image Rendering and Local Storage Functionality
- * 
- * This test file covers:
- * 1. Property images loading and rendering correctly
- * 2. Image gallery functionality
- * 3. Local storage operations for favourites
- * 4. Persistence of favourites across sessions
- * 
- * @requires jest
- * @requires @testing-library/react
- */
-
 import propertiesData from '../data/properties.json';
 
-// Mock localStorage implementation for testing
 const createLocalStorageMock = () => {
   let store = {};
   return {

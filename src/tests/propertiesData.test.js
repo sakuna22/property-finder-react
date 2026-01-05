@@ -1,7 +1,3 @@
-/**
- * Tests for JSON Property Data Validation
- * Ensuring all 7 properties have required fields and diverse data
- */
 import propertiesData from '../data/properties.json';
 
 describe('Properties JSON Data', () => {
@@ -47,19 +43,19 @@ describe('Properties JSON Data', () => {
     const prices = properties.map((p) => p.price);
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
-    expect(maxPrice - minPrice).toBeGreaterThan(500000); // At least 500k difference
+    expect(maxPrice - minPrice).toBeGreaterThan(500000);
   });
 
   test('should have diverse bedroom counts', () => {
     const bedrooms = properties.map((p) => p.bedrooms);
     const uniqueBedrooms = [...new Set(bedrooms)];
-    expect(uniqueBedrooms.length).toBeGreaterThanOrEqual(4); // At least 4 different bedroom counts
+    expect(uniqueBedrooms.length).toBeGreaterThanOrEqual(4);
   });
 
   test('should have diverse postcodes', () => {
     const postcodes = properties.map((p) => p.postcode);
     const uniquePostcodes = [...new Set(postcodes)];
-    expect(uniquePostcodes.length).toBeGreaterThanOrEqual(5); // At least 5 different postcodes
+    expect(uniquePostcodes.length).toBeGreaterThanOrEqual(5);
   });
 
   test('each property should have 6-8 images', () => {

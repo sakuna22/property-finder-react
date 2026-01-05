@@ -1,9 +1,3 @@
-/**
- * Tests for Search Functionality Logic
- * Testing the actual filtering of properties based on search criteria
- */
-
-// Mock property data for testing
 const mockProperties = [
   {
     id: 'prop1',
@@ -57,20 +51,15 @@ const mockProperties = [
   },
 ];
 
-/**
- * Filter function that mirrors the search functionality in SearchForm
- */
 const filterProperties = (properties, criteria) => {
   let filtered = [...properties];
 
-  // Filter by type
   if (criteria.type && criteria.type !== 'any') {
     filtered = filtered.filter(
       (property) => property.type.toLowerCase() === criteria.type.toLowerCase()
     );
   }
 
-  // Filter by price range
   if (criteria.minPrice) {
     filtered = filtered.filter(
       (property) => property.price >= Number(criteria.minPrice)
@@ -82,7 +71,6 @@ const filterProperties = (properties, criteria) => {
     );
   }
 
-  // Filter by bedrooms
   if (criteria.minBedrooms && criteria.minBedrooms !== 'Any') {
     const minBeds = criteria.minBedrooms === '5+' ? 5 : Number(criteria.minBedrooms);
     filtered = filtered.filter((property) => property.bedrooms >= minBeds);
@@ -92,7 +80,6 @@ const filterProperties = (properties, criteria) => {
     filtered = filtered.filter((property) => property.bedrooms <= maxBeds);
   }
 
-  // Filter by date added
   if (criteria.dateFrom) {
     const fromDate = new Date(criteria.dateFrom);
     filtered = filtered.filter((property) => {
@@ -108,7 +95,6 @@ const filterProperties = (properties, criteria) => {
     });
   }
 
-  // Filter by postcode
   if (criteria.postcode) {
     filtered = filtered.filter((property) =>
       property.postcode.toLowerCase().includes(criteria.postcode.toLowerCase())
@@ -186,7 +172,7 @@ describe('Search Functionality', () => {
   test('should return empty array when no properties match', () => {
     const criteria = {
       type: 'house',
-      postcode: 'E14', // E14 only has flats
+      postcode: 'E14',
     };
     const result = filterProperties(mockProperties, criteria);
     expect(result).toHaveLength(0);

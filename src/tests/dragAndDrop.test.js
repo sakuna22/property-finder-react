@@ -1,19 +1,4 @@
-/**
- * Tests for Drag and Drop Functionality
- * 
- * This test file covers:
- * 1. Drag and drop to add properties to favourites
- * 2. Drag operations and state management
- * 3. Drop zone detection and handling
- * 
- * @requires jest
- * @requires @dnd-kit/core
- */
-
 describe('Drag and Drop Functionality', () => {
-  /**
-   * Mock property data for drag and drop testing
-   */
   const mockProperty = {
     id: 'prop1',
     type: 'house',
@@ -39,9 +24,6 @@ describe('Drag and Drop Functionality', () => {
   };
 
   describe('Drag Event Handling', () => {
-    /**
-     * Simulates drag start event data
-     */
     const createDragStartEvent = (property) => ({
       active: {
         id: property.id,
@@ -51,9 +33,6 @@ describe('Drag and Drop Functionality', () => {
       },
     });
 
-    /**
-     * Simulates drag end event data
-     */
     const createDragEndEvent = (property, overId) => ({
       active: {
         id: property.id,
@@ -68,7 +47,6 @@ describe('Drag and Drop Functionality', () => {
       const event = createDragStartEvent(mockProperty);
       let activeId = null;
       
-      // Simulate handleDragStart
       const handleDragStart = (e) => {
         activeId = e.active.id;
       };
@@ -82,7 +60,6 @@ describe('Drag and Drop Functionality', () => {
       const favourites = [];
       let updatedFavourites = [...favourites];
       
-      // Simulate handleDragEnd
       const handleDragEnd = (e) => {
         if (e.over && e.over.id === 'favourites-drop-zone') {
           const property = e.active.data.current;

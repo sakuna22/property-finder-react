@@ -1,7 +1,3 @@
-/**
- * Tests for the Redux Search Slice
- * Testing search criteria state management
- */
 import searchReducer, {
   setSearchCriteria,
   resetSearchCriteria,

@@ -1,32 +1,3 @@
-/**
- * SearchForm.jsx - Property Search Filter Component
- * 
- * This component provides a comprehensive search interface with:
- * - Property type filter (house/flat/any)
- * - Price range slider with formatted values
- * - Bedroom count selectors (min/max)
- * - Date range pickers for listing date
- * - Postcode/area code autocomplete
- * 
- * React UI Widgets Used:
- * - MUI Select for dropdowns
- * - MUI Slider for price range
- * - MUI Autocomplete for postcode
- * - MUI DatePicker for date selection
- * - MUI TextField, Button, Chip components
- * 
- * State Management:
- * - Uses Redux for search criteria persistence
- * - Dispatches filter actions to update results
- * 
- * @component
- * @requires react
- * @requires react-redux
- * @requires @mui/material
- * @requires @mui/x-date-pickers
- * @author Estate Agent App
- * @version 1.0.0
- */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -66,10 +37,6 @@ import {
 } from '../store/slices/searchSlice';
 import { setFilteredProperties } from '../store/slices/propertiesSlice';
 
-/**
- * Price slider marks for visual reference
- * Displays price points on the slider
- */
 const priceMarks = [
   { value: 0, label: 'Rs.0' },
   { value: 50000000, label: 'Rs.50M' },
@@ -77,62 +44,34 @@ const priceMarks = [
   { value: 150000000, label: 'Rs.150M' },
 ];
 
-/**
- * Bedroom options for dropdown selectors
- */
 const bedroomOptions = ['Any', '1', '2', '3', '4', '5+'];
 
-/**
- * Available postcode options for autocomplete
- * Based on Sri Lankan area codes
- */
 const postcodeOptions = ['CMB7', 'CMB3', 'NGD', 'CMB4', 'BTM', 'RJG', 'NGM'];
 
-/**
- * SearchForm Component
- * Renders the property search filter interface
- * 
- * @returns {JSX.Element} The search form component
- */
 const SearchForm = () => {
   const dispatch = useDispatch();
   const searchCriteria = useSelector((state) => state.search);
   const allProperties = useSelector((state) => state.properties.allProperties);
 
-  // Local state for price range slider (for smooth UI updates)
   const [priceRange, setPriceRange] = useState([
     searchCriteria.minPrice || 0,
     searchCriteria.maxPrice || 150000000,
   ]);
 
-  /**
-   * Handles price slider change
-   * Updates both local state (for UI) and Redux state
-   * 
-   * @param {Event} event - Change event
-   * @param {Array} newValue - New price range [min, max]
-   */
   const handlePriceChange = (event, newValue) => {
     setPriceRange(newValue);
     dispatch(setMinPrice(newValue[0]));
     dispatch(setMaxPrice(newValue[1]));
   };
 
-  /**
-   * Executes the search with current criteria
-   * Filters properties based on all active filters
-   */
   const handleSearch = () => {
     let filtered = [...allProperties];
-
-    // Filter by type
     if (searchCriteria.type && searchCriteria.type !== 'any') {
       filtered = filtered.filter(
         (property) => property.type.toLowerCase() === searchCriteria.type.toLowerCase()
       );
     }
 
-    // Filter by price range
     if (searchCriteria.minPrice) {
       filtered = filtered.filter(
         (property) => property.price >= Number(searchCriteria.minPrice)
@@ -144,7 +83,6 @@ const SearchForm = () => {
       );
     }
 
-    // Filter by bedrooms
     if (searchCriteria.minBedrooms && searchCriteria.minBedrooms !== 'Any') {
       const minBeds = searchCriteria.minBedrooms === '5+' ? 5 : Number(searchCriteria.minBedrooms);
       filtered = filtered.filter((property) => property.bedrooms >= minBeds);
@@ -154,7 +92,6 @@ const SearchForm = () => {
       filtered = filtered.filter((property) => property.bedrooms <= maxBeds);
     }
 
-    // Filter by date added
     if (searchCriteria.dateFrom) {
       const fromDate = dayjs(searchCriteria.dateFrom);
       filtered = filtered.filter((property) =>
@@ -168,7 +105,6 @@ const SearchForm = () => {
       );
     }
 
-    // Filter by postcode
     if (searchCriteria.postcode) {
       filtered = filtered.filter((property) =>
         property.postcode.toLowerCase().includes(searchCriteria.postcode.toLowerCase())
@@ -178,23 +114,12 @@ const SearchForm = () => {
     dispatch(setFilteredProperties(filtered));
   };
 
-  /**
-   * Resets all search criteria to default values
-   * Shows all properties
-   */
   const handleReset = () => {
     dispatch(resetSearchCriteria());
     setPriceRange([0, 150000000]);
     dispatch(setFilteredProperties(allProperties));
   };
 
-  /**
-   * Formats price value for display
-   * Converts to millions (M) or thousands (k) format
-   * 
-   * @param {number} value - Price value
-   * @returns {string} Formatted price string
-   */
   const formatPrice = (value) => {
     if (value >= 1000000) {
       return `Rs.${(value / 1000000).toFixed(0)}M`;
@@ -230,7 +155,6 @@ const SearchForm = () => {
         </Typography>
 
         <Grid container spacing={3}>
-          {/* Property Type */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <FormControl fullWidth>
               <InputLabel id="type-label">Property Type</InputLabel>
@@ -262,7 +186,6 @@ const SearchForm = () => {
             </FormControl>
           </Grid>
 
-          {/* Price Range Slider */}
           <Grid size={{ xs: 12, md: 8 }}>
             <Typography gutterBottom sx={{ fontWeight: 500, mb: 2 }}>
               Price Range: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
@@ -287,7 +210,6 @@ const SearchForm = () => {
             />
           </Grid>
 
-          {/* Min Bedrooms */}
           <Grid size={{ xs: 6, sm: 3 }}>
             <FormControl fullWidth>
               <InputLabel id="min-beds-label">Min Bedrooms</InputLabel>
@@ -306,7 +228,6 @@ const SearchForm = () => {
             </FormControl>
           </Grid>
 
-          {/* Max Bedrooms */}
           <Grid size={{ xs: 6, sm: 3 }}>
             <FormControl fullWidth>
               <InputLabel id="max-beds-label">Max Bedrooms</InputLabel>
@@ -325,7 +246,6 @@ const SearchForm = () => {
             </FormControl>
           </Grid>
 
-          {/* Date From */}
           <Grid size={{ xs: 6, sm: 3 }}>
             <DatePicker
               label="Date Added From"
@@ -341,7 +261,6 @@ const SearchForm = () => {
             />
           </Grid>
 
-          {/* Date To */}
           <Grid size={{ xs: 6, sm: 3 }}>
             <DatePicker
               label="Date Added To"
@@ -357,7 +276,6 @@ const SearchForm = () => {
             />
           </Grid>
 
-          {/* Postcode */}
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Autocomplete
               freeSolo
@@ -376,7 +294,6 @@ const SearchForm = () => {
             />
           </Grid>
 
-          {/* Action Buttons */}
           <Grid size={{ xs: 12, sm: 6, md: 8 }}>
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', height: '100%', alignItems: 'flex-end' }}>
               <Button

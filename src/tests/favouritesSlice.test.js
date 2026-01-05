@@ -1,7 +1,3 @@
-/**
- * Tests for the Redux Favourites Slice
- * Testing add, remove, clear, and duplicate prevention functionality
- */
 import favouritesReducer, {
   addToFavourites,
   removeFromFavourites,

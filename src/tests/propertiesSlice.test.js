@@ -1,7 +1,3 @@
-/**
- * Tests for the Redux Properties Slice
- * Testing property filtering and state management
- */
 import propertiesReducer, {
   setFilteredProperties,
   setSelectedProperty,
