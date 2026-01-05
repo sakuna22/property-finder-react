@@ -1,5 +1,25 @@
+/**
+ * Global CSS Styles for Estate Agent Application
+ * 
+ * This file contains:
+ * - Base styles and CSS reset
+ * - Custom scrollbar styling
+ * - Responsive design (RWD) with media queries for:
+ *   - Large screens (desktop: > 1024px)
+ *   - Small screens (tablet/mobile: < iPad landscape 1024px)
+ * - Animation utilities
+ * - Print styles
+ * 
+ * @author Estate Agent App
+ * @version 1.0.0
+ */
+
+/* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* ===========================
+   CSS Reset & Base Styles
+   =========================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -20,9 +41,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  line-height: 1.5;
 }
 
-/* Custom scrollbar */
+/* ===========================
+   Custom Scrollbar Styling
+   =========================== */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -42,14 +66,202 @@ body {
   background: #a1a1a1;
 }
 
-/* Responsive Typography */
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
+/* ===========================
+   RESPONSIVE DESIGN (RWD)
+   Media Queries for different screen sizes
+   =========================== */
+
+/* 
+ * Large Screens (Desktop) - Above iPad Landscape (> 1024px)
+ * Features: Multi-column layouts, larger fonts, full sidebar
+ */
+@media (min-width: 1025px) {
+  /* Desktop container width */
+  .MuiContainer-maxWidthXl {
+    max-width: 1536px;
+  }
+  
+  /* Property cards in 3-column grid */
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  /* Favourites sidebar visible on side */
+  .favourites-sidebar {
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  /* Search form - horizontal layout */
+  .search-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }
 
-/* Animation classes */
+/* 
+ * Small Screens (Tablet & Mobile) - Below iPad Landscape (≤ 1024px)
+ * Features: Single/double column layouts, stacked elements, collapsible sidebar
+ */
+@media (max-width: 1024px) {
+  /* Reduce base font size for smaller screens */
+  html {
+    font-size: 15px;
+  }
+  
+  /* Container padding adjustment */
+  .MuiContainer-root {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  /* Property cards in 2-column grid */
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  /* Search form - stacked layout */
+  .search-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Price slider full width */
+  .price-slider-container {
+    width: 100%;
+  }
+  
+  /* Favourites sidebar - collapsed at bottom on tablet */
+  .favourites-sidebar {
+    position: relative;
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+/* 
+ * Mobile Screens (< 768px)
+ * Features: Single column, touch-friendly spacing
+ */
+@media (max-width: 768px) {
+  /* Further reduce font size */
+  html {
+    font-size: 14px;
+  }
+  
+  /* Property cards - single column */
+  .property-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  /* Property card adjustments */
+  .MuiCard-root {
+    margin-bottom: 16px;
+  }
+  
+  /* Property card image height reduction */
+  .property-card-image {
+    height: 180px;
+  }
+  
+  /* Search form buttons - full width on mobile */
+  .search-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .search-buttons button {
+    width: 100%;
+  }
+  
+  /* Tab labels - smaller text */
+  .MuiTab-root {
+    font-size: 0.85rem;
+    min-width: auto;
+    padding: 8px 12px;
+  }
+  
+  /* Property page image gallery */
+  .image-gallery-main {
+    height: 250px;
+  }
+  
+  /* Thumbnail gallery - smaller thumbnails */
+  .image-gallery-thumbnails {
+    gap: 8px;
+  }
+  
+  .image-gallery-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Favourites sidebar - full width on mobile */
+  .favourites-sidebar {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  /* Header adjustments */
+  .MuiToolbar-root {
+    padding: 8px;
+  }
+  
+  /* Hide drag indicator on mobile (touch-friendly) */
+  .drag-indicator {
+    display: none;
+  }
+}
+
+/* 
+ * Extra Small Screens (< 480px)
+ * Features: Maximum space efficiency
+ */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  /* Minimal container padding */
+  .MuiContainer-root {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  /* Property card content padding */
+  .MuiCardContent-root {
+    padding: 12px;
+  }
+  
+  /* Breadcrumbs - hide on very small screens */
+  .MuiBreadcrumbs-root {
+    display: none;
+  }
+  
+  /* Property info - stacked layout */
+  .property-info-chips {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Date pickers - full width */
+  .date-picker-container {
+    width: 100%;
+  }
+}
+
+/* ===========================
+   Animation Classes
+   =========================== */
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -65,15 +277,93 @@ body {
   }
 }
 
-/* Dragging styles */
+/* Slide in from right animation */
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===========================
+   Drag and Drop Styles
+   =========================== */
 [data-dragging="true"] {
   opacity: 0.5;
 }
 
-/* Print styles */
+/* Draggable card hover state */
+.draggable-card {
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.draggable-card:active {
+  cursor: grabbing;
+}
+
+/* Drop zone highlight */
+.drop-zone-active {
+  border: 2px dashed #00DEB6;
+  background-color: rgba(0, 222, 182, 0.05);
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #00DEB6;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
 @media print {
+  /* Hide non-essential elements */
   header,
-  footer {
-    display: none;
+  footer,
+  .favourites-sidebar,
+  .search-form-container,
+  button {
+    display: none !important;
+  }
+  
+  /* Full width for print */
+  .MuiContainer-root {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /* Property cards - single column for print */
+  .property-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Remove shadows and borders for print */
+  .MuiPaper-root {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
   }
 }
