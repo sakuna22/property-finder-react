@@ -1,0 +1,171 @@
+{
+  "properties": [
+    {
+      "id": "prop1",
+      "type": "house",
+      "bedrooms": 4,
+      "price": 85000000,
+      "tenure": "Freehold",
+      "description": "Stunning Colonial-style family home",
+      "longDescription": "This magnificent colonial-style property has been lovingly restored to offer modern living while retaining period charm. The ground floor features a spacious reception hall, elegant living room with antique details and original teak flooring, a separate dining room perfect for entertaining, and a contemporary open-plan kitchen with modern appliances. The first floor offers four generous double bedrooms, including a master with en-suite, and a family bathroom. Additional features include a landscaped garden with tropical plants, off-street parking, and a separate servant quarters.",
+      "location": "Colombo 07, Cinnamon Gardens",
+      "postcode": "CMB7",
+      "dateAdded": "2025-11-15",
+      "mainImage": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+        "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.9039, "lng": 79.8612 }
+    },
+    {
+      "id": "prop2",
+      "type": "flat",
+      "bedrooms": 2,
+      "price": 45000000,
+      "tenure": "Leasehold",
+      "description": "Modern apartment with stunning ocean views",
+      "longDescription": "A beautifully presented two-bedroom apartment located on the 12th floor of this prestigious development in Colombo's prime waterfront area. The property boasts an open-plan living/dining area with floor-to-ceiling windows offering panoramic views across the Indian Ocean. The sleek kitchen is fitted with integrated appliances and granite worktops. The master bedroom features built-in wardrobes and an en-suite shower room, while the second bedroom is served by a contemporary family bathroom. Residents benefit from 24-hour security, swimming pool, gymnasium, and secure underground parking.",
+      "location": "Colombo 03, Kollupitiya",
+      "postcode": "CMB3",
+      "dateAdded": "2025-10-20",
+      "mainImage": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800",
+        "https://images.unsplash.com/photo-1630699144867-37acec97df5a?w=800",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800",
+        "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.9167, "lng": 79.8486 }
+    },
+    {
+      "id": "prop3",
+      "type": "house",
+      "bedrooms": 3,
+      "price": 62500000,
+      "tenure": "Freehold",
+      "description": "Charming semi-detached family home",
+      "longDescription": "A delightful three-bedroom semi-detached house situated in a quiet residential neighborhood in Nugegoda. The property offers versatile accommodation comprising an entrance hall, through lounge/diner, and a fitted kitchen with access to the rear garden. Upstairs there are three bedrooms and a family bathroom. The property benefits from ceiling fans, inverter air conditioning, a private driveway providing off-street parking, and a well-maintained rear garden with fruit trees. Conveniently located close to schools, supermarkets, and public transport.",
+      "location": "Nugegoda, Pagoda Road",
+      "postcode": "NGD",
+      "dateAdded": "2025-12-01",
+      "mainImage": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800",
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
+        "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.8728, "lng": 79.8889 }
+    },
+    {
+      "id": "prop4",
+      "type": "flat",
+      "bedrooms": 1,
+      "price": 27500000,
+      "tenure": "Leasehold",
+      "description": "Stylish studio apartment in city center",
+      "longDescription": "An attractive one-bedroom apartment located on the fifth floor of this modern apartment complex. The property features a bright and airy living room with large windows, a separate modern kitchen, a good-sized double bedroom with built-in wardrobes, and a contemporary bathroom. The apartment benefits from air conditioning, 24-hour security, and is offered with one parking slot. Ideally positioned for access to local amenities, restaurants, and excellent transport connections. Walking distance to Liberty Plaza and major shopping areas.",
+      "location": "Colombo 04, Bambalapitiya",
+      "postcode": "CMB4",
+      "dateAdded": "2025-12-15",
+      "mainImage": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800",
+        "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800",
+        "https://images.unsplash.com/photo-1560185009-dddeb820c7b7?w=800",
+        "https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?w=800",
+        "https://images.unsplash.com/photo-1560185008-b033106af5c3?w=800",
+        "https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.8883, "lng": 79.8561 }
+    },
+    {
+      "id": "prop5",
+      "type": "house",
+      "bedrooms": 5,
+      "price": 125000000,
+      "tenure": "Freehold",
+      "description": "Executive luxury residence with pool",
+      "longDescription": "An exceptional five-bedroom detached family home set within landscaped grounds of approximately 40 perches. This impressive property offers generous accommodation including a grand entrance hall, formal drawing room, separate dining room, study, and a stunning open-plan kitchen/family room with island and premium imported appliances. The first floor provides five bedrooms, three with en-suites, plus a family bathroom. Outside, the property features a private swimming pool, landscaped tropical garden, triple garage, and automated security gate. A truly remarkable home in the prestigious Battaramulla area.",
+      "location": "Battaramulla, Parliament Road",
+      "postcode": "BTM",
+      "dateAdded": "2025-11-01",
+      "mainImage": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+        "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.9013, "lng": 79.9183 }
+    },
+    {
+      "id": "prop6",
+      "type": "flat",
+      "bedrooms": 3,
+      "price": 55000000,
+      "tenure": "Leasehold",
+      "description": "Penthouse apartment with rooftop terrace",
+      "longDescription": "A stunning three-bedroom penthouse apartment occupying the entire top floor of this modern development in the heart of Rajagiriya. The property features a magnificent open-plan living space with high ceilings and large windows flooding the room with natural light. The bespoke kitchen is fitted with high-end appliances and breakfast bar. Three double bedrooms include a master suite with dressing area and luxury en-suite. The highlight is a private rooftop terrace offering spectacular views across Colombo city and distant hills. Additional benefits include lift access, 24-hour security, and two allocated parking spaces.",
+      "location": "Rajagiriya, Parliament Junction",
+      "postcode": "RJG",
+      "dateAdded": "2025-12-20",
+      "mainImage": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+        "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800",
+        "https://images.unsplash.com/photo-1560185008-b033106af5c3?w=800",
+        "https://images.unsplash.com/photo-1560185009-dddeb820c7b7?w=800",
+        "https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?w=800",
+        "https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 6.9066, "lng": 79.8994 }
+    },
+    {
+      "id": "prop7",
+      "type": "house",
+      "bedrooms": 2,
+      "price": 39500000,
+      "tenure": "Freehold",
+      "description": "Cosy beach-side cottage in Negombo",
+      "longDescription": "A charming two-bedroom cottage brimming with character located just minutes from Negombo beach. The property comprises an inviting living room with tropical wooden features, a separate dining area, and a recently updated kitchen with access to the courtyard garden. Upstairs offers two double bedrooms with built-in storage and a modern bathroom. This delightful home benefits from ceiling fans, solar hot water system, and is ideally located within walking distance of the beach, restaurants, and local markets. Perfect as a holiday home or permanent residence.",
+      "location": "Negombo, Lewis Place",
+      "postcode": "NGM",
+      "dateAdded": "2025-09-10",
+      "mainImage": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+      "images": [
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+        "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=800",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
+        "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800"
+      ],
+      "floorPlan": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800",
+      "coordinates": { "lat": 7.2094, "lng": 79.8358 }
+    }
+  ]
+}
