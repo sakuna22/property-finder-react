@@ -34,23 +34,26 @@ A responsive Single Page Application (SPA) built with React, MUI (Material UI), 
 - Persistent storage (localStorage)
 - Clear all favourites option
 
-### Responsive Design
-- Mobile-first approach
-- Two layouts: Large screens and Tablet/Mobile
-- CSS Grid and Flexbox
-- Hand-written media queries
+### Responsive Design (RWD)
+- Mobile-first approach with hand-written media queries
+- Two layouts: 
+  - **Large screens (> 1024px)**: Multi-column grid, sidebar visible
+  - **Small screens (≤ 1024px)**: Single/double column, stacked layout
+- CSS Grid and Flexbox for layout
+- Custom breakpoints for optimal viewing on all devices
 
 ### Security
-- Content Security Policy (CSP)
-- HTML encoding via React's JSX
+- Content Security Policy (CSP) meta tags
+- HTML encoding via React's JSX (prevents XSS)
 - X-Content-Type-Options header
 - X-Frame-Options protection
+- Strict referrer policy
 
 ## 🛠️ Technologies Used
 
 - **React 19** - UI Framework
 - **Vite** - Build Tool
-- **Material UI (MUI)** - Component Library
+- **Material UI (MUI)** - Component Library with React UI widgets
 - **Redux Toolkit** - State Management
 - **React Router DOM** - Routing
 - **@dnd-kit** - Drag and Drop
@@ -79,7 +82,7 @@ estate-agent-app/
 │   │       ├── favouritesSlice.js
 │   │       └── searchSlice.js
 │   ├── data/
-│   │   └── properties.json
+│   │   └── properties.json (7 properties)
 │   ├── theme/
 │   │   └── theme.js
 │   ├── tests/
@@ -88,13 +91,19 @@ estate-agent-app/
 │   │   ├── propertiesSlice.test.js
 │   │   ├── searchSlice.test.js
 │   │   ├── searchFunctionality.test.js
-│   │   └── propertiesData.test.js
+│   │   ├── propertiesData.test.js
+│   │   ├── imagesAndLocalStorage.test.js
+│   │   └── dragAndDrop.test.js
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
 ├── index.html
 ├── package.json
 ├── vite.config.js
+├── vercel.json
 ├── jest.config.js
 └── README.md
 ```
@@ -168,23 +177,67 @@ The application uses 7 properties with the following structure:
 
 ## 🧪 Testing
 
-The project includes 41+ tests covering:
+The project includes **74 tests** covering:
 - Redux slice functionality (favourites, properties, search)
-- Search filtering logic
+- Search filtering logic with multiple criteria
 - JSON data validation
 - Duplicate prevention in favourites
+- Image rendering validation
+- Local storage operations
+- Drag and drop functionality
+
+### Test Files:
+- `favouritesSlice.test.js` - Add/remove/clear favourites
+- `propertiesSlice.test.js` - Property filtering
+- `searchSlice.test.js` - Search criteria management
+- `searchFunctionality.test.js` - Combined search filters
+- `propertiesData.test.js` - JSON data structure validation
+- `imagesAndLocalStorage.test.js` - Image URLs & localStorage
+- `dragAndDrop.test.js` - DnD functionality
 
 ## 📱 Responsive Breakpoints
 
-- **Large screens**: > 1024px (Desktop layout)
-- **Tablet/Mobile**: < 1024px (Collapsed layout)
+- **Large screens**: > 1024px (Desktop layout - 3 columns)
+- **Tablet**: ≤ 1024px (2 columns, stacked sidebar)
+- **Mobile**: < 768px (Single column)
+- **Small mobile**: < 480px (Compact layout)
 
 ## 🔒 Security Measures
 
-1. **Content Security Policy (CSP)**: Restricts resource loading
-2. **JSX Encoding**: Automatic HTML encoding by React
-3. **X-Content-Type-Options**: Prevents MIME sniffing
+1. **Content Security Policy (CSP)**: Restricts resource loading via meta tags
+2. **JSX Encoding**: Automatic HTML encoding by React (prevents XSS)
+3. **X-Content-Type-Options**: Prevents MIME type sniffing
 4. **X-Frame-Options**: Clickjacking protection
+5. **Referrer Policy**: Controls referrer information
+
+## 🚀 Deployment
+
+### GitHub Pages
+
+1. Update `vite.config.js`:
+   ```js
+   base: '/estate-agent-app/'
+   ```
+
+2. Push to main branch - GitHub Actions will deploy automatically
+
+### Vercel
+
+1. Connect repository to Vercel
+2. Deploy with default settings (uses `vercel.json` config)
+
+Or manually:
+```bash
+npm run deploy:vercel
+```
+
+## 👨‍💻 Author
+
+Estate Agent App - Advanced Client-Side Web Development Coursework
+
+## 📄 License
+
+MIT License
 
 ## 📝 License
 

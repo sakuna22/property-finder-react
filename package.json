@@ -1,8 +1,11 @@
 {
   "name": "estate-agent-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Estate Agent Property Search Application - A React-based property listing and search application with favourites functionality",
+  "author": "Estate Agent App",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,7 +13,8 @@
     "preview": "vite preview",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
-    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "deploy:vercel": "vercel --prod"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
